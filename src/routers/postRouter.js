@@ -11,4 +11,6 @@ router.post('/', middlewares.validatePost, controllers.addPost);
 
 router.get('/', controllers.getAllPosts);
 
+router.get('/:id', controllers.getPostById);
+
 module.exports = router;
