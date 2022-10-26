@@ -13,4 +13,6 @@ router.get('/', controllers.getAllPosts);
 
 router.get('/:id', controllers.getPostById);
 
+router.put('/:id', middlewares.validateUpdate, controllers.updatePost);
+
 module.exports = router;
