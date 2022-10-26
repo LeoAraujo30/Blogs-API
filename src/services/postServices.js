@@ -1,4 +1,4 @@
-const { User, BlogPost, PostCategory } = require('../models');
+const { User, BlogPost, Category, PostCategory } = require('../models');
 
 const addPost = async ({ title, content, categoryIds }, email) => {
   const { id: userId } = await User.findOne({ where: { email } });
@@ -12,14 +12,15 @@ const addPost = async ({ title, content, categoryIds }, email) => {
   return post;
 };
 
-// const getAllUser = async () => {
-//   const users = await User.findAll();
-//   const result = users.map((user) => {
-//     const { id, displayName, email, image } = user;
-//     return { id, displayName, email, image };
-//   });
-//   return result;
-// };
+const getAllPosts = async () => {
+  const result = await BlogPost.findAll({
+    include: [
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ],
+  });
+  return result;
+};
 
 // const getUserById = async (userId) => {
 //   const user = await User.findByPk(userId);
@@ -28,6 +29,6 @@ const addPost = async ({ title, content, categoryIds }, email) => {
 
 module.exports = { 
   addPost,
-//   getAllUser,
+  getAllPosts,
 //   getUserById,
 };

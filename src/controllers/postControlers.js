@@ -9,14 +9,14 @@ const addPost = async (req, res) => {
   }
 };
 
-// const getAllUser = async (req, res) => {
-//   try {
-//     const result = await services.getAllUser();
-//     res.status(200).json(result);
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
+const getAllPosts = async (req, res) => {
+  try {
+    const result = await services.getAllPosts();
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 
 // const getUserById = async (req, res) => {
 //   try {
@@ -34,6 +34,6 @@ const addPost = async (req, res) => {
   
 module.exports = {
   addPost,
-//   getAllUser,
+  getAllPosts,
 //   getUserById,
 };

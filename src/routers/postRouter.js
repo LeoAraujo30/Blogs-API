@@ -9,6 +9,6 @@ router.use(validateToken);
 
 router.post('/', middlewares.validatePost, controllers.addPost);
 
-// router.get('/', controllers.getAllCategory);
+router.get('/', controllers.getAllPosts);
 
 module.exports = router;
