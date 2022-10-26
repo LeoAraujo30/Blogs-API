@@ -9,9 +9,9 @@ const addCategory = async (req, res) => {
   }
 };
 
-const getAllUser = async (req, res) => {
+const getAllCategory = async (req, res) => {
   try {
-    const result = await services.getAllUser();
+    const result = await services.getAllCategory();
     res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -20,5 +20,5 @@ const getAllUser = async (req, res) => {
   
 module.exports = {
   addCategory,
-  getAllUser,
+  getAllCategory,
 };

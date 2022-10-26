@@ -5,16 +5,12 @@ const addCategory = async ({ name }) => {
   return result;
 };
 
-// const getAllUser = async () => {
-//   const users = await User.findAll();
-//   const result = users.map((user) => {
-//     const { id, displayName, email, image } = user;
-//     return { id, displayName, email, image };
-//   });
-//   return result;
-// };
+const getAllCategory = async () => {
+  const result = await Category.findAll();
+  return result;
+};
 
 module.exports = { 
   addCategory,
-//   getAllUser,
+  getAllCategory,
 };
