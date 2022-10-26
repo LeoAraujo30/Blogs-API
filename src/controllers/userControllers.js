@@ -9,7 +9,17 @@ const addUser = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+const getAllUser = async (req, res) => {
+    try {
+      const result = await services.getAllUser();
+      res.status(200).json(result);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
   
 module.exports = {
   addUser,
+  getAllUser,
 };
