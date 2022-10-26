@@ -5,13 +5,13 @@ const services = require('../services/loginServices');
 
 const secret = process.env.JWT_SECRET;
 
-const product = joi.object({
+const login = joi.object({
   email: joi.string().required(),
   password: joi.string().required(),
 });
 
 const validateLogin = async (req, res, next) => {
-  const { error } = product.validate(req.body);
+  const { error } = login.validate(req.body);
   if (error) {
     return res.status(400).json({ message: 'Some required fields are missing' });
   }
