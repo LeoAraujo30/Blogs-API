@@ -1,10 +1,11 @@
 const express = require('express');
 const loginRouter = require('./loginRouter');
+const userRouter = require('./userRouter');
 
 const router = (express.Router());
 
 router.use('/login', loginRouter);
-// router.use('/user');
+router.use('/user', userRouter);
 // router.use('/categories');
 // router.use('/post');
 
